@@ -17,6 +17,11 @@ RUN apt-get update && apt-get install -y \
     npm \
  && mkdir -p /home/stuff
 
+RUN wget https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-amd64-static.tar.xz && \
+    tar xvf ffmpeg*.xz && \
+    cd ffmpeg-*-static && \
+    mv "${PWD}/ffmpeg" "${PWD}/ffprobe" /usr/local/bin/
+
 # Set work dir:
 WORKDIR /home
 
