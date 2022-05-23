@@ -4,18 +4,7 @@ FROM phusion/baseimage:bionic-1.0.0
 CMD ["/sbin/my_init"]
 
 # Install dependencies:
-RUN apt-get update && apt-get install -y \
-    bash \
-    curl \
-    sudo \
-    wget \
-    git \
-    make \
-    busybox \
-    build-essential \
-    nodejs \
-    npm \
-    ffmpeg \
+RUN apt-get update && apt-get install -y bash curl sudo wget git make busybox build-essential nodejs npm ffmpeg 
  && mkdir -p /home/stuff
 
 # Set work dir:
