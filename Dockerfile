@@ -1,4 +1,4 @@
-FROM phusion/baseimage:bionic-1.0.0
+FROM python:3.8.5-slim-buster
 
 # Use baseimage-docker's init system:
 CMD ["/sbin/my_init"]
