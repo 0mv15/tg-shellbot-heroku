@@ -1,10 +1,10 @@
-FROM python:3.8.5-slim-buster
+FROM phusion/baseimage:bionic-1.0.0
 
 # Use baseimage-docker's init system:
 CMD ["/sbin/my_init"]
 
 # Install dependencies:
-RUN apt-get update && apt-get install -y bash curl sudo wget git make busybox build-essential nodejs npm ffmpeg 
+RUN apt-get update && apt-get install -y bash curl sudo wget git make busybox build-essential ffmpeg nodejs npm 
  && mkdir -p /home/stuff
 
 # Set work dir:
