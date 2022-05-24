@@ -1,12 +1,17 @@
-FROM phusion/baseimage:bionic-1.0.0
+FROM python:3-slim-buster
 
 # Use baseimage-docker's init system:
 CMD ["/sbin/my_init"]
 
 # Install dependencies:
 RUN apt-get update
-RUN apt-get install -y ffmpeg software-properties-common mediainfo mkvtoolnix unzip wget git bash curl sudo make busybox  build-essential nodejs npm
+RUN apt-get install -y ffmpeg software-properties-common unzip wget git bash curl sudo make busybox build-essential nodejs npm
  && mkdir -p /home/stuff
+
+RUN wget https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-amd64-static.tar.xz && \
+    tar xvf ffmpeg*.xz && \
+    cd ffmpeg-*-static && \
+    mv "${PWD}/ffmpeg" "${PWD}/ffprobe" /usr/local/bin/
 
 # Set work dir:
 WORKDIR /home
